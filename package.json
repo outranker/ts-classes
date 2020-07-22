@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "watch": "tsc -w",
-    "dev": "nodemon dist/server.js"
+    "dev": "nodemon dist/interfaces.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

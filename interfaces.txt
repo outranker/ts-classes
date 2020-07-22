@@ -1,0 +1,51 @@
+INTERFACES
+in its simplest form, interface describes what a sructure of an object should look like
+unlike class, we don't use it as a blueprint we use it more like as a structure definition
+ex: interface Credentials {
+    id: number
+    name: string
+    fetchCreds(id: number, name: string): void
+}
+here we are defining an interface which has 2 properties and 1 method and here we are merely constructing a 
+typr or class but just creating an object structure so that we can use it with classes
+ex: class Person implements Credentials {
+    name: string;
+    age = 30;
+    constructor(n: string, i: number) {
+        this.name = n;
+        this.id = i;
+    }
+    fetchCreds(id: number, name: string) {
+        console.log('Request is sent!');
+    }
+}
+note that up above we can implement more than 1 interface
+
+READONLY INTERFACE PROPERTIES
+we can add readonly modifier to interface property. this means after instanciating or giving it a value
+we cannot assign another value to it making it more like one time assign
+
+EXTENDING INTERFACES
+when a class implements from 2 different interfaces we can code it in 2 ways: 
+1 is to implement with commas like: class Person implements Greet, Talk
+2 is to make one interface extend the other like: interface Talk extends Greet. in this way
+we can only implement only 1 interface because it is extending from another interface
+
+INTERFACES AS FUNCTION TYPES
+interfaces can also be used to define the structure of a function. but custom types are easier to code
+ex: interface AddFn {
+    (a: number, b: number): number
+}
+let add: AddFn
+add = (n1: number, n2: number) => {
+    return n1 + n2
+}
+
+OPTIONAL PARAMETERS AND PROPERTIES AND METHODS
+we can set properties and methods of interfaces optional
+interface Named {
+    readonly name: string
+    outputName?: string
+    greet(text: string)?: void'
+}
+but gotta be careful about optionals. the logic flow should correct. assign default values or use if clauses
